@@ -39,6 +39,11 @@ jobs:
         env:
           jthumbnailer.openoffice.dir: /opt/openoffice4/
         run: ./gradlew test
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-result
+          path: /home/runner/work/JThumbnail/JThumbnail/build/reports/tests/test/index.html
 
   publish:
 #    needs: [ "build" ]
